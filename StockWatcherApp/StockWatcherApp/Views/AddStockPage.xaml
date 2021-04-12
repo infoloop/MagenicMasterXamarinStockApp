@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="StockWatcherApp.AddStockPage" Title="{Binding Name}">
+    <Grid Margin="20" VerticalOptions="StartAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Stock Symbol" Grid.Row="1"
+                 Grid.Column="1" />
+        <Entry Text="{Binding StockSymbol}" Grid.Row="1"
+                 Grid.Column="2" />
+        <Label Text="Company Name" Grid.Row="2"
+                 Grid.Column="1" />
+        <Entry Text="{Binding CompanyName}" Grid.Row="2"
+                 Grid.Column="2" />
+        <Label Text="Shares" Grid.Row="3"
+                 Grid.Column="1" />
+        <Entry Text="{Binding Shares}" Grid.Row="3"
+                 Grid.Column="2" />
+        <Label Text="Value" Grid.Row="4"
+                 Grid.Column="1"/>
+        <Entry Text="{Binding Value}" Grid.Row="4"
+                 Grid.Column="2"/>
+        <Button Text="Add" Clicked="OnAddClicked" Grid.Row="5"
+                 Grid.Column="1" />
+    </Grid>
+</ContentPage>

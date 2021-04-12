@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StockWatcherApp.ValueConverters"
+             x:Class="StockWatcherApp.StockTotalPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:GreatConverter x:Key="greattext" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <CarouselView x:Name="carouselView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="5"
+                       Margin="20"
+                       HeightRequest="300"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="{Binding StockSymbol}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                                <Label Text="Company Name:"
+                               HorizontalOptions="Center" />
+                                <Label Text="{Binding CompanyName}"
+                               HorizontalOptions="Center" />
+                                <Label Text="Value Per Share:"
+                               HorizontalOptions="Center" />
+                                <Label Text="{Binding Value}"
+                               HorizontalOptions="Center" />
+                                <Label Text="Shares:"
+                               HorizontalOptions="Center" />
+                                <Label Text="{Binding Shares}"
+                               HorizontalOptions="Center" />
+                                <Label Text="Total Value:"
+                               HorizontalOptions="Center" />
+                                <Label Text="{Binding TotalValue}"
+                               HorizontalOptions="Center" />
+                                <Label Text="You are doing Great"
+                                    IsVisible="{Binding TotalValue,
+                                    Converter={StaticResource greattext}}" 
+                                    HorizontalOptions="Center" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockWatcherApp.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnStockAdded">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+    <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding StockSymbol}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding Value}" VerticalTextAlignment="Center" HorizontalOptions="End" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+        <Grid Margin="20,35,20,20" VerticalOptions="EndAndExpand" HeightRequest="50">
+            <Label Text="Total Value: " Grid.Column="1" />
+            <Label Text="{Binding ValueOfAllStock}" Grid.Column="2" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
